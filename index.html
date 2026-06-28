@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dick Hartog — werkplaats</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --sand:#ECDBB6;      /* warme mortel — achtergrond */
+    --cream:#F6EFDE;      /* licht paneel */
+    --ink:#1A140F;        /* warm zwart — kaders & tekst */
+    --brick:#B14228;      /* baksteen, Amsterdamse School */
+    --gold:#E2A52B;       /* Hundertwasser-goud */
+    --green:#2F7A56;      /* organisch groen */
+    --cobalt:#235E86;     /* diep blauw */
+    --shadow:7px 7px 0 var(--ink);
+    --shadow-sm:4px 4px 0 var(--ink);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+
+  body{
+    font-family:"Space Mono",monospace;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.5;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:clamp(1rem,4vw,3rem) 1rem;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .sheet{width:100%;max-width:760px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    background:var(--brick);
+    color:var(--cream);
+    border:4px solid var(--ink);
+    /* organische, asymmetrische rondingen — Gaudí/Hundertwasser */
+    border-radius:46px 12px 52px 14px / 16px 50px 14px 48px;
+    box-shadow:var(--shadow);
+    padding:clamp(1.8rem,5vw,3rem);
+    overflow:hidden;
+  }
+
+  /* trap-motief — een knipoog naar de Amsterdamse School-baksteenmassa's */
+  .steps{display:flex;gap:5px;margin-bottom:1.3rem}
+  .steps span{width:14px;background:var(--gold);border:2px solid var(--ink)}
+  .steps span:nth-child(1){height:14px}
+  .steps span:nth-child(2){height:22px}
+  .steps span:nth-child(3){height:30px}
+  .steps span:nth-child(4){height:38px}
+
+  .eyebrow{
+    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:700;opacity:.85;
+  }
+
+  h1{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:800;
+    font-size:clamp(3rem,13vw,6rem);
+    line-height:.9;
+    letter-spacing:-.02em;
+    margin:.4rem 0 1rem;
+  }
+
+  .tagline{max-width:34rem;font-size:.98rem}
+
+  /* spiraal — "de spiraal is leven" (Hundertwasser) */
+  .spiral{
+    position:absolute;top:-26px;right:-26px;
+    width:150px;height:150px;opacity:.5;
+    color:var(--gold);
+  }
+
+  /* ---------- MOZAÏEKBAND (trencadís) ---------- */
+  .mosaic{
+    display:flex;flex-wrap:wrap;gap:6px;
+    margin:2rem 0;padding:0 2px;
+    list-style:none;
+  }
+  .mosaic li{
+    flex:1 1 auto;height:26px;min-width:26px;
+    border:3px solid var(--ink);
+  }
+  /* onregelmatige tegels, geen twee gelijk */
+  .mosaic li:nth-child(5n+1){background:var(--gold);border-radius:14px 4px 10px 4px;flex-grow:1.4}
+  .mosaic li:nth-child(5n+2){background:var(--green);border-radius:4px 12px 4px 14px;flex-grow:.8}
+  .mosaic li:nth-child(5n+3){background:var(--cobalt);border-radius:12px 12px 4px 4px;flex-grow:1.6}
+  .mosaic li:nth-child(5n+4){background:var(--brick);border-radius:4px 4px 14px 10px;flex-grow:1}
+  .mosaic li:nth-child(5n+5){background:var(--cream);border-radius:10px 4px 4px 12px;flex-grow:1.2}
+
+  /* ---------- PROJECTEN ---------- */
+  .section-label{
+    font-size:.74rem;letter-spacing:.22em;text-transform:uppercase;
+    font-weight:700;margin-bottom:1.1rem;
+    display:inline-block;
+    background:var(--ink);color:var(--sand);
+    padding:.35rem .7rem;
+    border-radius:10px 3px 10px 3px;
+  }
+
+  .stack{display:flex;flex-direction:column;gap:1.3rem}
+
+  .card{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    align-items:center;
+    gap:1.2rem;
+    border:4px solid var(--ink);
+    box-shadow:var(--shadow);
+    padding:1.3rem 1.5rem;
+    text-decoration:none;
+    color:var(--ink);
+    transition:transform .12s steps(2),box-shadow .12s steps(2);
+  }
+  /* Hundertwasser: elk paneel z'n eigen kleur & onregelmatige vorm.
+     Wil je een nieuw project? Kopieer een .card-blok hieronder en
+     geef 'm een eigen kleur (--gold / --green / --cobalt / --cream)
+     en een eigen border-radius. */
+  .card--kaprekar{
+    background:var(--gold);
+    border-radius:14px 44px 16px 40px / 40px 16px 44px 14px;
+    transform:rotate(-1deg);
+  }
+  .card:hover,.card:focus-visible{
+    transform:translate(3px,3px) rotate(0deg);
+    box-shadow:var(--shadow-sm);
+    outline:none;
+  }
+  .card:focus-visible{outline:3px solid var(--cobalt);outline-offset:4px}
+
+  .code{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:800;font-size:2rem;line-height:1;
+  }
+
+  .meta .kind{
+    font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:700;display:block;margin-bottom:.3rem;
+  }
+  .meta h2{
+    font-family:"Bricolage Grotesque",sans-serif;
+    font-weight:700;font-size:1.7rem;line-height:1;
+  }
+  .meta p{font-size:.9rem;margin-top:.35rem}
+
+  .go{font-weight:700;font-size:.9rem;white-space:nowrap}
+
+  /* leeg "volgende project"-vakje */
+  .ghost{
+    display:flex;align-items:center;gap:1.2rem;
+    border:4px dashed var(--ink);
+    border-radius:40px 14px 44px 16px / 16px 44px 14px 40px;
+    padding:1.3rem 1.5rem;
+    transform:rotate(.6deg);
+    color:var(--ink);
+  }
+  .ghost .code{opacity:.45}
+  .ghost .kind{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:.25rem}
+  .ghost .label{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.25rem}
+
+  /* ---------- VOET ---------- */
+  footer{
+    margin-top:2.6rem;
+    border-top:4px solid var(--ink);
+    padding-top:1rem;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;
+    font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+  }
+
+  @media (max-width:540px){
+    .card{grid-template-columns:auto 1fr;gap:.5rem 1rem}
+    .go{grid-column:2}
+    .spiral{width:100px;height:100px;top:-18px;right:-18px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .card,.ghost,.card--kaprekar{transform:none;transition:none}
+    .card:hover,.card:focus-visible{transform:none}
+  }
+</style>
+</head>
+<body>
+  <main class="sheet">
+
+    <!-- ---------- HERO ---------- -->
+    <header class="hero">
+      <svg class="spiral" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6" aria-hidden="true">
+        <path d="M50 50 m0 0 a8 8 0 1 1 -0.1 0 M50 50 a18 18 0 1 1 -10 -33 a30 30 0 1 1 35 12 a42 42 0 1 1 -55 -8"/>
+      </svg>
+      <div class="steps"><span></span><span></span><span></span><span></span></div>
+      <p class="eyebrow">dickhartog.dev — werkplaats</p>
+      <h1>Dick&nbsp;Hartog</h1>
+      <p class="tagline">Een eigenwijze werkplaats voor zelfgebouwde machines, puzzels en experimenten. Trek aan een van de hendels hieronder.</p>
+    </header>
+
+    <!-- trencadís-mozaïek: gebroken tegeltjes, puur decoratief -->
+    <ul class="mosaic" aria-hidden="true">
+      <li></li><li></li><li></li><li></li><li></li>
+      <li></li><li></li><li></li><li></li><li></li>
+    </ul>
+
+    <!-- ---------- PROJECTEN ---------- -->
+    <p class="section-label">Projecten</p>
+
+    <div class="stack">
+
+      <!-- ====================================================== -->
+      <!--  PROJECTKAART — kopieer dit hele <a>-blok om een nieuw  -->
+      <!--  project toe te voegen. Geef de nieuwe kaart een eigen  -->
+      <!--  class i.p.v. card--kaprekar met een andere kleur &     -->
+      <!--  border-radius (zie de CSS bij .card--kaprekar).        -->
+      <!-- ====================================================== -->
+      <a class="card card--kaprekar" href="https://kaprekar.dickhartog.dev">
+        <span class="code">001</span>
+        <div class="meta">
+          <span class="kind">Getaltheorie</span>
+          <h2>Kaprekar</h2>
+          <p>De mysterieuze constante 6174 — sorteer de cijfers, trek af, herhaal, en kom altijd thuis.</p>
+        </div>
+        <span class="go">Open&nbsp;→</span>
+      </a>
+      <!-- ====== einde projectkaart ====== -->
+
+      <!-- leeg vakje dat laat zien waar het volgende project komt -->
+      <div class="ghost">
+        <span class="code">002</span>
+        <div>
+          <span class="kind">Werk in uitvoering</span>
+          <span class="label">De volgende machine komt hier</span>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <span>Gebouwd met HTML · Git · koffie</span>
+      <span>MMXXVI</span>
+    </footer>
+
+  </main>
+</body>
+</html>
