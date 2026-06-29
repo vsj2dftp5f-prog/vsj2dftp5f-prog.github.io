@@ -16,6 +16,7 @@
     --gold:#E2A52B;       /* Hundertwasser-goud */
     --green:#2F7A56;      /* organisch groen */
     --cobalt:#235E86;     /* diep blauw */
+    --vice:#C2417A;       /* vice-roze — knipoog naar de neon van GTA */
     --shadow:7px 7px 0 var(--ink);
     --shadow-sm:4px 4px 0 var(--ink);
   }
@@ -130,6 +131,13 @@
     border-radius:14px 44px 16px 40px / 40px 16px 44px 14px;
     transform:rotate(-1deg);
   }
+  /* 006 — GTA VI: vice-roze paneel met crème tekst, kantelt de andere kant op */
+  .card--gta{
+    background:var(--vice);
+    color:var(--cream);
+    border-radius:40px 16px 44px 14px / 14px 44px 16px 40px;
+    transform:rotate(1deg);
+  }
   .card:hover,.card:focus-visible{
     transform:translate(3px,3px) rotate(0deg);
     box-shadow:var(--shadow-sm);
@@ -163,6 +171,10 @@
     transform:rotate(.6deg);
     color:var(--ink);
   }
+  /* lichte variatie in kanteling, zodat de lege vakjes "met de hand gelegd" ogen */
+  .ghost--b{transform:rotate(-.7deg);border-radius:16px 42px 14px 44px / 44px 14px 40px 16px}
+  .ghost--c{transform:rotate(.9deg);border-radius:44px 16px 40px 14px / 14px 40px 16px 44px}
+  .ghost--d{transform:rotate(-.4deg);border-radius:14px 40px 16px 42px / 40px 16px 44px 14px}
   .ghost .code{opacity:.45}
   .ghost .kind{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;display:block;margin-bottom:.25rem}
   .ghost .label{font-family:"Bricolage Grotesque",sans-serif;font-weight:600;font-size:1.25rem}
@@ -182,7 +194,7 @@
     .spiral{width:100px;height:100px;top:-18px;right:-18px}
   }
   @media (prefers-reduced-motion:reduce){
-    .card,.ghost,.card--kaprekar{transform:none;transition:none}
+    .card,.ghost,.card--kaprekar,.card--gta{transform:none;transition:none}
     .card:hover,.card:focus-visible{transform:none}
   }
 </style>
@@ -229,7 +241,7 @@
       </a>
       <!-- ====== einde projectkaart ====== -->
 
-      <!-- leeg vakje dat laat zien waar het volgende project komt -->
+      <!-- lege vakjes 002–005: gereserveerd voor toekomstige machines -->
       <div class="ghost">
         <span class="code">002</span>
         <div>
@@ -237,6 +249,41 @@
           <span class="label">De volgende machine komt hier</span>
         </div>
       </div>
+
+      <div class="ghost ghost--b">
+        <span class="code">003</span>
+        <div>
+          <span class="kind">Binnenkort</span>
+          <span class="label">Hier broeit iets…</span>
+        </div>
+      </div>
+
+      <div class="ghost ghost--c">
+        <span class="code">004</span>
+        <div>
+          <span class="kind">Gereserveerd</span>
+          <span class="label">Plek voor een nieuw idee</span>
+        </div>
+      </div>
+
+      <div class="ghost ghost--d">
+        <span class="code">005</span>
+        <div>
+          <span class="kind">Schetsfase</span>
+          <span class="label">Nog niets… maar dat verandert</span>
+        </div>
+      </div>
+
+      <!-- 006 — GTA VI countdown -->
+      <a class="card card--gta" href="https://gta6.dickhartog.dev">
+        <span class="code">006</span>
+        <div class="meta">
+          <span class="kind">Aftellen · Vice City</span>
+          <h2>GTA VI</h2>
+          <p>Aftellen naar 19 november 2026 in neon en palmbomen — voor Philip.</p>
+        </div>
+        <span class="go">Open&nbsp;→</span>
+      </a>
 
     </div>
 
