@@ -138,6 +138,13 @@
     border-radius:40px 16px 44px 14px / 14px 44px 16px 40px;
     transform:rotate(1deg);
   }
+  /* 002 — Commodore GL-976M: groen paneel (de VFD-gloed), crème tekst */
+  .card--commodore{
+    background:var(--green);
+    color:var(--cream);
+    border-radius:16px 42px 14px 46px / 44px 14px 42px 16px;
+    transform:rotate(-.8deg);
+  }
   .card:hover,.card:focus-visible{
     transform:translate(3px,3px) rotate(0deg);
     box-shadow:var(--shadow-sm);
@@ -194,7 +201,7 @@
     .spiral{width:100px;height:100px;top:-18px;right:-18px}
   }
   @media (prefers-reduced-motion:reduce){
-    .card,.ghost,.card--kaprekar,.card--gta{transform:none;transition:none}
+    .card,.ghost,.card--kaprekar,.card--gta,.card--commodore{transform:none;transition:none}
     .card:hover,.card:focus-visible{transform:none}
   }
 </style>
@@ -241,15 +248,18 @@
       </a>
       <!-- ====== einde projectkaart ====== -->
 
-      <!-- lege vakjes 002–005: gereserveerd voor toekomstige machines -->
-      <div class="ghost">
+      <!-- 002 — Commodore GL-976M rekenmachine -->
+      <a class="card card--commodore" href="https://commodore.dickhartog.dev">
         <span class="code">002</span>
-        <div>
-          <span class="kind">Werk in uitvoering</span>
-          <span class="label">De volgende machine komt hier</span>
+        <div class="meta">
+          <span class="kind">Rekenmachine · 1975</span>
+          <h2>Commodore</h2>
+          <p>Een liefdevol eerbetoon aan de Commodore GL-976M — groen gloeiende cijfers en verborgen wiskunde onder de toetsen.</p>
         </div>
-      </div>
+        <span class="go">Open&nbsp;→</span>
+      </a>
 
+      <!-- lege vakjes 003–005: gereserveerd voor toekomstige machines -->
       <div class="ghost ghost--b">
         <span class="code">003</span>
         <div>
